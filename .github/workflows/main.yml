@@ -32,4 +32,5 @@ jobs:
         artifacts: '*.zip'
         tag: ${{ steps.variables.outputs.version }}
         commit: ${{ github.sha }}
-        token: ${{ github.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        body: "Release ${{ steps.variables.outputs.version }}\nChecksum (SHA-256): ${{ steps.checksum.outputs.sha256 }}"
